@@ -4,8 +4,12 @@
 cmake_minimum_required(VERSION 2.8.8)
 
 if (POLICY CMP0048)
-  cmake_policy(SET CMP0048 NEW)
+  cmake_policy(SET CMP0048 NEW) # project() command manages VERSION variables
 endif (POLICY CMP0048)
+
+if (POLICY CMP0042)
+  cmake_policy(SET CMP0048 NEW) # MACOSX_RPATH is enabled by default.
+endif (POLICY CMP0042)
 
 project(googletest-distribution)
 set(GOOGLETEST_VERSION 1.10.0)
